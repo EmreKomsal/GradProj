@@ -72,6 +72,11 @@ public class HeadTrackHandler : MonoBehaviour
             _oldPos = gameObject.transform.position;
         }
 
+        if (!avatar.gameObject.activeSelf && _trackable)
+        {
+            avatar.gameObject.SetActive(true);
+        }
+
         if (avatar.GetHeadCalibrated() != isCalibrated && !isCalibrated)
         {
             isCalibrated = avatar.GetHeadCalibrated();
@@ -112,6 +117,7 @@ public class HeadTrackHandler : MonoBehaviour
             Debug.Log("Scene Ready");
             MovieSceneObj.SetActive(true);
             PlayButtonObj.SetActive(true);
+            avatar.gameObject.SetActive(false);
         }
     }
 }
