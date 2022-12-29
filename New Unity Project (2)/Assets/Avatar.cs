@@ -40,25 +40,27 @@ public class Avatar : MonoBehaviour
     public bool playedTools = false;
     public bool playedSelected = false;
     public bool playedMovie = false;
+    public bool playedAll = false;
     // Start is called before the first frame update
     
-    private void Update()
+    private void PlayNext()
     {
-        if (playedSelected && playedTools && playedMovie)
-        {
-            return;
-        }
-        if (playedSelected)
+        if (playedSelected & !playedTools)
         {
             avatarController.SelectPlayed();
         }
-        if (playedTools)
+        if (playedTools & !playedMovie)
         {
             avatarController.ToolsPlayed();
         }
-        if (playedMovie)
+        if (playedMovie & !playedAll)
         {
             avatarController.MoviePlayed();
+            playedAll = true;
+        }
+        if (playedAll)
+        {
+            return;
         }
     }
 
@@ -67,6 +69,7 @@ public class Avatar : MonoBehaviour
         audioSource.clip = audioList[soundID];
         audioSource.Play();
         animator.SetTrigger(triggerID);
+        Debug.Log("Playing: " + audioList[soundID].name);
     }
 
     public void PlayWelcome()
@@ -78,7 +81,7 @@ public class Avatar : MonoBehaviour
 
     public void PlaySelected()
     {
-        Debug.Log("Selected");
+        Debug.Log("Play Selected");
         Play(id_cheer, trigger_cheer);
         StartCoroutine(StartTalking(1.167f));
         StartCoroutine(StopTalking(7.7f, state => playedSelected = state));
@@ -87,13 +90,15 @@ public class Avatar : MonoBehaviour
     public void PlayTools()
     {
         Play(id_tools, trigger_talk);
-        StartCoroutine(StopTalking(5f, state => playedTools = state));
+        Debug.Log("Play Tools");
+        StartCoroutine(StopTalking(8f, state => playedTools = state));
     }
 
     public void PlayMovie()
     {
         Play(id_movie, trigger_talk);
-        StartCoroutine(StopTalking(5f, state => playedMovie = state));
+        Debug.Log("Play Movie");
+        StartCoroutine(StopTalking(10f, state => playedMovie = state)); 
     }
 
     IEnumerator StartTalking(float seconds)
@@ -111,6 +116,7 @@ public class Avatar : MonoBehaviour
         Debug.Log("Current Sound Stopped");
         animator.SetTrigger(trigger_stop);
         state(true);
+        PlayNext();
     }
 
     public void StopTalking()

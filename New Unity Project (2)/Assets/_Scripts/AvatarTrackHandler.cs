@@ -15,9 +15,17 @@ public class AvatarTrackHandler : MonoBehaviour
     [SerializeField]
     private GameObject tools;
     [SerializeField]
-    private VideoPlayer videoPlayer;
-    [SerializeField]
     private HeadTrackHandler headTrackHandler;
+
+
+
+    [SerializeField]
+    private bool stateSelect = false;
+    [SerializeField]
+    private bool stateTools = false;
+    [SerializeField]
+    private bool stateMovie = false;
+
 
     [Header("Order")]
     public bool isAvatarSelected = false;
@@ -48,7 +56,8 @@ public class AvatarTrackHandler : MonoBehaviour
     public void SelectPlayed()
     {
         selectedAvatar.PlayTools();
-        //tools.SetActive(true);
+        stateSelect = true;
+        tools.SetActive(true);
         _trackableEventHandler.OnTargetFound.RemoveListener(selectedAvatar.PlaySelected);
         _trackableEventHandler.OnTargetFound.AddListener(selectedAvatar.PlayTools);
     }
@@ -56,35 +65,22 @@ public class AvatarTrackHandler : MonoBehaviour
     public void ToolsPlayed()
     {
         _trackableEventHandler.OnTargetFound.RemoveListener(selectedAvatar.PlayTools);
-        //tools.SetActive(false);
+        stateTools = true;
+        tools.SetActive(false);
         _trackableEventHandler.OnTargetFound.AddListener(selectedAvatar.PlayMovie);
         selectedAvatar.PlayMovie();
     }
 
     public void MoviePlayed()
     {
+        Debug.Log("Movie Played Test");
         _trackableEventHandler.OnTargetFound.RemoveListener(selectedAvatar.PlayMovie);
-        videoPlayer.gameObject.SetActive(true);
+        stateMovie = true;
+        //StartMovie();
         //headTrackHandler.IsTrackable(true);
-        _trackableEventHandler.OnTargetFound.AddListener(StartMovie);
-        _trackableEventHandler.OnTargetLost.AddListener(StopMovie);
+        //_trackableEventHandler.OnTargetFound.AddListener(StartMovie);
+        //_trackableEventHandler.OnTargetLost.AddListener(StopMovie);
     }
 
-    private void StartMovie()
-    {
-        if (!videoPlayer.gameObject.activeSelf)
-        {
-            videoPlayer.gameObject.SetActive(true);
-        }
-        videoPlayer.Play();
-    }
 
-    private void StopMovie()
-    {
-        if (videoPlayer.gameObject.activeSelf)
-        {
-            videoPlayer.gameObject.SetActive(false);
-        }
-        videoPlayer.Pause();
-    }
 }
