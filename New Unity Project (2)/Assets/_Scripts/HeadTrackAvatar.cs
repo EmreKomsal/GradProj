@@ -42,7 +42,7 @@ public class HeadTrackAvatar : MonoBehaviour
         audioSource.Play();
         animator.SetTrigger(trigger_talk);
         Debug.Log("Playing: " + audioSource.clip.name);
-        StartCoroutine(StopTalking(10f));
+        StartCoroutine(StopTalking(15f));
     }
 
     IEnumerator StopTalking(float seconds)

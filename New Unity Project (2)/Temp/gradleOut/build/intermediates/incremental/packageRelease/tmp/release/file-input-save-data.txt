@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Dec 29 23:24:38 EET 2022
+#Fri Dec 30 11:15:26 EET 2022
 124.path=bin/Data/Managed/System.IO.Compression.dll
 60.set=ASSET
 52.set=ASSET
@@ -31,7 +31,7 @@
 113.base=C\:\\Users\\ekoms\\Documents\\UnityProjects\\New Unity Project (2)\\GradProj\\New Unity Project (2)\\Temp\\gradleOut\\build\\intermediates\\merged_assets\\release\\mergeReleaseAssets\\out
 104.baseType=DIRECTORY
 22.base=C\:\\Users\\ekoms\\Documents\\UnityProjects\\New Unity Project (2)\\GradProj\\New Unity Project (2)\\Temp\\gradleOut\\build\\intermediates\\merged_assets\\release\\mergeReleaseAssets\\out
-14.path=bin/Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll
+14.path=bin/Data/level1
 29.base=C\:\\Users\\ekoms\\Documents\\UnityProjects\\New Unity Project (2)\\GradProj\\New Unity Project (2)\\Temp\\gradleOut\\build\\intermediates\\merged_assets\\release\\mergeReleaseAssets\\out
 61.path=bin/Data/Managed/UnityEngine.AssetBundleModule.dll
 76.base=C\:\\Users\\ekoms\\Documents\\UnityProjects\\New Unity Project (2)\\GradProj\\New Unity Project (2)\\Temp\\gradleOut\\build\\intermediates\\merged_assets\\release\\mergeReleaseAssets\\out
@@ -484,7 +484,7 @@ count=130
 33.baseType=DIRECTORY
 114.base=C\:\\Users\\ekoms\\Documents\\UnityProjects\\New Unity Project (2)\\GradProj\\New Unity Project (2)\\Temp\\gradleOut\\build\\intermediates\\merged_assets\\release\\mergeReleaseAssets\\out
 23.base=C\:\\Users\\ekoms\\Documents\\UnityProjects\\New Unity Project (2)\\GradProj\\New Unity Project (2)\\Temp\\gradleOut\\build\\intermediates\\merged_assets\\release\\mergeReleaseAssets\\out
-15.path=bin/Data/level1
+15.path=bin/Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll
 70.base=C\:\\Users\\ekoms\\Documents\\UnityProjects\\New Unity Project (2)\\GradProj\\New Unity Project (2)\\Temp\\gradleOut\\build\\intermediates\\transforms\\mergeJniLibs\\release\\0
 102.baseType=DIRECTORY
 77.base=C\:\\Users\\ekoms\\Documents\\UnityProjects\\New Unity Project (2)\\GradProj\\New Unity Project (2)\\Temp\\gradleOut\\build\\intermediates\\merged_assets\\release\\mergeReleaseAssets\\out

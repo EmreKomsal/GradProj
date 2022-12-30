@@ -98,7 +98,7 @@ public class Avatar : MonoBehaviour
     {
         Play(id_movie, trigger_talk);
         Debug.Log("Play Movie");
-        StartCoroutine(StopTalking(10f, state => playedMovie = state)); 
+        StartCoroutine(StopTalking(12f, state => playedMovie = state)); 
     }
 
     IEnumerator StartTalking(float seconds)
