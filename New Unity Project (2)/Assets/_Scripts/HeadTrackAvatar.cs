@@ -34,7 +34,6 @@ public class HeadTrackAvatar : MonoBehaviour
     public void SetHeadCalibrated(bool state)
     {
         headCalibrated = state;
-
     }
 
     public void PlayInfo()
@@ -51,6 +50,7 @@ public class HeadTrackAvatar : MonoBehaviour
 
         Debug.Log("Current Sound Stopped");
         animator.SetTrigger(trigger_stop);
+        SetHeadCalibrated(true);
     }
 
     public void StopInfo()

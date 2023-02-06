@@ -74,9 +74,9 @@ public class Avatar : MonoBehaviour
 
     public void PlayWelcome()
     {
-        Debug.Log("Play Welcome");
-        Play(id_welcome, trigger_talk);
-        StartCoroutine(StopTalking(8.124f, state =>  playedWelcome = state));
+        Debug.Log("Play Welcome"); //Console log for debugging
+        Play(id_welcome, trigger_talk); //Play sound and trigger animation
+        StartCoroutine(StopTalking(8.124f, state =>  playedWelcome = state)); //Stop sound and animation
     }
 
     public void PlaySelected()
@@ -111,10 +111,13 @@ public class Avatar : MonoBehaviour
 
     IEnumerator StopTalking(float seconds, System.Action<bool> state)
     {
+        //This part will work after calling Coroutine
         yield return new WaitForSeconds(seconds);
-
+        //This part will work after waiting given seconds
         Debug.Log("Current Sound Stopped");
+        //Stop animation 
         animator.SetTrigger(trigger_stop);
+        //Change state value
         state(true);
         PlayNext();
     }

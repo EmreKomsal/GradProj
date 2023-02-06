@@ -55,11 +55,11 @@ public class AvatarTrackHandler : MonoBehaviour
 
     public void SelectPlayed()
     {
-        selectedAvatar.PlayTools();
-        stateSelect = true;
-        tools.SetActive(true);
-        _trackableEventHandler.OnTargetFound.RemoveListener(selectedAvatar.PlaySelected);
-        _trackableEventHandler.OnTargetFound.AddListener(selectedAvatar.PlayTools);
+        selectedAvatar.PlayTools(); //Call avatar object function
+        stateSelect = true; //Change State value
+        tools.SetActive(true); //Activate Object From Object Pool
+        _trackableEventHandler.OnTargetFound.RemoveListener(selectedAvatar.PlaySelected); //Remove this function from event call
+        _trackableEventHandler.OnTargetFound.AddListener(selectedAvatar.PlayTools); //Addd this function to event call
     }
 
     public void ToolsPlayed()
